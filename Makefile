@@ -21,44 +21,21 @@ OBJ =	$(SRC:.c=.o)
 CC =	cc
 RM =	rm -rf
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-OBJS = $(SRCS:.c=.o)
-
-CC = cc
-RM = rm -rf
-CFLAGS = -Wall -Wextra -Werror
-
-all: clone $(NAME)
-=======
 # RULES #
 all:	clone $(NAME)
->>>>>>> parent of a31a57b (TODO: memleaks + validation)
 
 clone:
 	if [ ! -d "minilibx-linux" ]; then \
 		git clone https://github.com/42Paris/minilibx-linux.git; \
 	fi
 
-<<<<<<< HEAD
-$(NAME): $(OBJS)
-=======
-# RULES #
-all:	$(NAME)
-
 $(NAME):	$(OBJ)
-	git clone https://github.com/42Paris/minilibx-linux.git
->>>>>>> parent of 96281b7 (TODO: Check everything and push)
-=======
-$(NAME):	$(OBJ)
->>>>>>> parent of a31a57b (TODO: memleaks + validation)
 	make -C app
 	make -C minilibx-linux
 	$(CC) $(OBJ) app/libftprintf.a -L$(MLX) -lmlx_Linux -lX11 -lXext -lm -o $(NAME)
 
 clean:
 	make clean -C app
-	make clean -C minilibx-linux
 	$(RM) $(OBJ)
 
 fclean:	clean
